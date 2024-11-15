@@ -1,0 +1,34 @@
+networks:
+  backend:
+
+services:
+  apigateway:
+    container_name: api-gateway
+    image: ${DOCKER_REGISTRY-}apigateway
+    build:
+      context: .
+      dockerfile: ApiGateway/Dockerfile
+    ports:
+      - 8001:8080
+    networks:
+      - backend
+
+  authenticationwebapi:
+    container_name: authentication-api
+    image: ${DOCKER_REGISTRY-}authenticationwebapi
+    build:
+      context: .
+      dockerfile: AuthenticationWebApi/Dockerfile
+    networks:
+      - backend
+
+  service1webapi:
+    image: ${DOCKER_REGISTRY-}service1webapi
+    build:
+      context: .
+      dockerfile: Service1WebApi/Dockerfile
+    ports:
+      - 18006:8080
+    networks:
+      - backend
+
