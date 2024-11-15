@@ -27,8 +27,6 @@ services:
     build:
       context: .
       dockerfile: Service1WebApi/Dockerfile
-    ports:
-      - 18006:8080
     networks:
       - backend
 

@@ -7,7 +7,7 @@
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "localhost", //authenticationwebapi
+          "Host": "authenticationwebapi",
           "Port": 8080
         }
       ],
@@ -20,11 +20,15 @@
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "localhost", //service1webapi
+          "Host": "service1webapi",
           "Port": 8080
         }
       ],
-      "DownstreamPathTemplate": "/api/WeatherForecast"
+      "DownstreamPathTemplate": "/WeatherForecast",
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      }
     }
   ],
   "GlobalConfiguration": {
